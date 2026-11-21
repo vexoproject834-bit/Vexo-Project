@@ -1,166 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VEXO — Engineered Groundwater-Treatment Sludge for Ozone Removal</title>
-  <script src="https://tailwindcss.com"></script>
-  <link href="https://googleapis.com" rel="stylesheet">
+  <title>VEXO — Engineered Sludge for Ozone Removal</title>
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090d16; color: #f1f5f9; }
-    .glass-card { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(148, 163, 184, 0.1); }
-    .gradient-text { background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .reactor-layer { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-    .reactor-layer:hover, .reactor-layer.active { transform: scale(1.03); border-color: #34d399; background: rgba(52, 211, 153, 0.15); }
+    :root {
+      --bg: #070b14;
+      --surface: #0f172a;
+      --surface-hover: #1e293b;
+      --border: #1e293b;
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.2);
+      --secondary: #38bdf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .badge-top { background: var(--primary-glow); color: var(--primary); border: 1px solid rgba(16,185,129,0.3); padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+
+    /* Container & Sections */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5rem 0; border-bottom: 1px solid rgba(30, 41, 59, 0.5); }
+
+    /* Hero */
+    .hero { padding: 9rem 0 5rem; text-align: center; }
+    .pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); color: var(--secondary); padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+    .gradient-text { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { max-width: 650px; margin: 0 auto 2rem; color: var(--muted); font-size: 1.1rem; }
+    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 0.85rem 1.6rem; border-radius: 0.75rem; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--primary); color: #022c22; box-shadow: 0 4px 20px var(--primary-glow); }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .btn-outline { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--muted); }
+
+    /* Grid & Cards */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.25rem; padding: 2rem; transition: 0.3s; }
+    .card:hover { border-color: rgba(56, 189, 248, 0.4); }
+    .card-highlight { border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, var(--surface) 100%); }
+    .sec-tag { color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    ul.clean-list { list-style: none; space-y: 0.75rem; }
+    ul.clean-list li { margin-bottom: 0.75rem; color: var(--muted); font-size: 0.95rem; display: flex; gap: 0.6rem; }
+
+    /* Interactive Matrix Bars */
+    .oxide-item { margin-bottom: 1.2rem; cursor: pointer; padding: 0.6rem; border-radius: 0.75rem; transition: 0.2s; }
+    .oxide-item:hover { background: var(--surface-hover); }
+    .oxide-header { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .bar-bg { background: #1e293b; height: 10px; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
+
+    /* Interactive Prototype */
+    .layer-btn {
+      width: 100%; text-align: center; padding: 1rem; margin-bottom: 0.6rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 0.85rem;
+      color: var(--text); cursor: pointer; transition: 0.2s; display: block;
+    }
+    .layer-btn:hover, .layer-btn.active { border-color: var(--primary); background: rgba(16, 185, 129, 0.12); transform: scale(1.02); }
+    .layer-stage { font-size: 0.7rem; font-weight: 800; color: var(--secondary); text-transform: uppercase; display: block; }
+
+    /* Simulator */
+    input[type="range"] { width: 100%; accent-color: var(--primary); margin: 0.5rem 0 1.5rem; cursor: pointer; }
+    .sim-box { background: #05080f; border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; text-align: center; }
+    .big-num { font-size: 3.5rem; font-weight: 800; color: var(--primary); line-height: 1.1; margin: 0.5rem 0; }
+
+    /* Team Cards */
+    .team-card { display: flex; align-items: center; gap: 1.25rem; }
+    .avatar { width: 85px; height: 85px; border-radius: 1rem; object-fit: cover; border: 2px solid var(--primary); background: #1e293b; flex-shrink: 0; }
+
+    footer { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: 0.85rem; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
   </style>
 </head>
-<body class="antialiased selection:bg-emerald-500 selection:text-white">
+<body>
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-2xl font-extrabold tracking-tight gradient-text">VEXO</a>
-      <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-emerald-400 transition">About & Problem</a>
-        <a href="#innovation" class="hover:text-emerald-400 transition">Innovation</a>
-        <a href="#results" class="hover:text-emerald-400 transition">Characterization</a>
-        <a href="#prototype" class="hover:text-emerald-400 transition">Interactive Prototype</a>
-        <a href="#simulator" class="hover:text-emerald-400 transition">O₃ Simulator</a>
-        <a href="#team" class="hover:text-emerald-400 transition">Team</a>
-      </div>
-      <span class="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ISEF Project • Qena</span>
+  <nav>
+    <a href="#" class="logo">VEXO</a>
+    <div class="nav-links">
+      <a href="#innovation">Innovation</a>
+      <a href="#matrix">Sludge Matrix</a>
+      <a href="#prototype">Prototype</a>
+      <a href="#simulator">O₃ Simulator</a>
+      <a href="#team">Team</a>
     </div>
+    <span class="badge-top">ISEF • Qena</span>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center">
-    <div class="inline-block px-4 py-1.5 mb-6 rounded-full glass-card text-xs font-semibold tracking-wider uppercase text-emerald-400">
-      Environmental Materials & Circular Economy Research
-    </div>
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-      Engineering Waste. <br><span class="gradient-text">Rethinking Clean Air.</span>
-    </h1>
-    <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">
-      Transforming native whole groundwater-treatment sludge from Qena into a cost-effective, multifunctional catalytic material for gas-phase ozone (O₃) removal.
-    </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#prototype" class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold transition shadow-lg shadow-emerald-500/20">
-        Explore Interactive Reactor
-      </a>
-      <a href="#results" class="px-6 py-3 rounded-xl glass-card hover:border-slate-600 text-white font-semibold transition">
-        View Lab Characterization
-      </a>
-    </div>
-  </header>
-
-  <!-- 01. About & Problem -->
-  <section id="about" class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="glass-card p-8 rounded-2xl">
-        <span class="text-xs font-bold uppercase tracking-wider text-sky-400">01 — The Dual Challenge</span>
-        <h2 class="text-2xl font-bold mt-2 mb-4">Two Environmental Crises, One Link</h2>
-        <ul class="space-y-4 text-slate-300 text-sm leading-relaxed">
-          <li class="flex items-start gap-3">
-            <span class="text-rose-400 font-bold">●</span>
-            <div><strong class="text-white">Ground-Level Ozone (O₃):</strong> A toxic secondary pollutant harming respiratory health and crops. Commercial filters rely on expensive synthetic catalysts.</div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-amber-400 font-bold">●</span>
-            <div><strong class="text-white">Water-Treatment Sludge:</strong> Municipal plants continuously generate solid sludge requiring costly handling and hazardous disposal.</div>
-          </li>
-        </ul>
+  <!-- Hero -->
+  <div class="container">
+    <header class="hero">
+      <span class="pill">Research Phase: Characterization Complete • Ozone Testing Next</span>
+      <h1>Engineering Waste.<br><span class="gradient-text">Rethinking Clean Air.</span></h1>
+      <p>Investigating whole groundwater-treatment sludge from Qena as a low-cost, multifunctional catalyst and sorbent matrix for gas-phase ozone (O₃) removal.</p>
+      <div class="btn-group">
+        <a href="#prototype" class="btn btn-primary">Inspect Interactive Prototype</a>
+        <a href="#matrix" class="btn btn-outline">Explore Sludge Composition</a>
       </div>
 
-      <div class="glass-card p-8 rounded-2xl border-emerald-500/20">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">02 — VEXO Hypothesis</span>
-        <h2 class="text-2xl font-bold mt-2 mb-4">The Whole-Matrix Principle</h2>
-        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-          Instead of using costly chemicals to extract a single metal, VEXO retains the <strong>native multicomponent sludge matrix</strong>. Natural iron oxides, manganese dioxide, and aluminosilicates work synergistically to capture and decompose ozone.
-        </p>
-        <div class="grid grid-cols-3 gap-2 pt-2 text-center">
-          <div class="p-3 rounded-xl bg-slate-900/60">
-            <div class="text-emerald-400 font-bold text-lg">&gt;85%</div>
-            <div class="text-xs text-slate-400">Target O₃ Removal</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/60">
-            <div class="text-sky-400 font-bold text-lg">Zero</div>
-            <div class="text-xs text-slate-400">Expensive Dopants</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/60">
-            <div class="text-amber-400 font-bold text-lg">100%</div>
-            <div class="text-xs text-slate-400">Waste Valorized</div>
-          </div>
+      <div class="grid-4">
+        <div class="card" style="padding:1.2rem;">
+          <div style="font-size:0.75rem; color:var(--muted);">Core Approach</div>
+          <div style="font-weight:700; color:var(--primary); margin-top:0.2rem;">Whole-Matrix Retention</div>
+        </div>
+        <div class="card" style="padding:1.2rem;">
+          <div style="font-size:0.75rem; color:var(--muted);">Target Pollutant</div>
+          <div style="font-weight:700; color:var(--secondary); margin-top:0.2rem;">Ground-Level Ozone (O₃)</div>
+        </div>
+        <div class="card" style="padding:1.2rem;">
+          <div style="font-size:0.75rem; color:var(--muted);">Feedstock</div>
+          <div style="font-weight:700; margin-top:0.2rem;">Qena Water Residuals</div>
+        </div>
+        <div class="card" style="padding:1.2rem;">
+          <div style="font-size:0.75rem; color:var(--muted);">Target Efficiency</div>
+          <div style="font-weight:700; color:#fbbf24; margin-top:0.2rem;">&gt;85% O₃ Removal</div>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- 02. Innovation Comparison -->
-  <section id="innovation" class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">03 — Our Innovation</span>
-      <h2 class="text-3xl font-bold mt-2">Keep the Matrix. Don't Isolate One Component.</h2>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="glass-card p-8 rounded-2xl opacity-75">
-        <h3 class="text-lg font-bold text-slate-400 mb-4">❌ Conventional Extraction Approach</h3>
-        <ul class="space-y-3 text-sm text-slate-400">
-          <li>• Acid leaching & chemical extraction of single metals</li>
-          <li>• High energy consumption and secondary chemical waste</li>
-          <li>• Requires expensive synthetic supports (e.g., CeO₂)</li>
-          <li>• High production cost limits real-world scalability</li>
-        </ul>
-      </div>
-      <div class="glass-card p-8 rounded-2xl border-emerald-500/40 relative overflow-hidden">
-        <div class="absolute top-0 right-0 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-bl-xl">VEXO NOVELTY</div>
-        <h3 class="text-lg font-bold text-emerald-400 mb-4">✅ VEXO Whole-Matrix Approach</h3>
-        <ul class="space-y-3 text-sm text-slate-200">
-          <li>• Preserves native Qena sludge composition intact</li>
-          <li>• Utilizes natural Fe₂O₃–MnO₂–SiO₂ synergistic interfaces</li>
-          <li>• Simple physical washing & granulation engineering</li>
-          <li>• Ultra-low cost circular economy air purification</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- 01. Innovation -->
+    <section id="innovation">
+      <span class="sec-tag">01 — Problem & Paradigm Shift</span>
+      <h2>Keep the matrix. Don't isolate one component.</h2>
+      <p style="color:var(--muted); max-width:750px; margin-bottom:2rem;">Water plants generate massive sludge waste while air purification relies on costly synthetic catalysts. VEXO tests whether native sludge constituents work synergistically as-is.</p>
 
-  <!-- 03. Interactive Lab Characterization Results -->
-  <section id="results" class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-wider text-sky-400">04 — Preliminary Lab Results</span>
-        <h2 class="text-3xl font-bold mt-2">Qena Sludge Oxide Composition</h2>
-        <p class="text-slate-400 text-sm mt-1">Click any oxide component below to explore its functional role in ozone removal.</p>
-      </div>
-      <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-medium">
-        Status: Characterization Complete • Ozone Testing Next
-      </span>
-    </div>
+      <div class="grid-2">
+        <div class="card">
+          <span style="font-size:0.75rem; color:#f43f5e; font-weight:700;">CONVENTIONAL PATHWAY • HIGH COST</span>
+          <h3 style="margin-top:0.4rem;">Single-Component Extraction</h3>
+          <ul class="clean-list">
+            <li><span style="color:#f43f5e;">✕</span> Chemically separate one target metal or mineral.</li>
+            <li><span style="color:#f43f5e;">✕</span> Energy-intensive purification & secondary waste.</li>
+            <li><span style="color:#f43f5e;">✕</span> Rebuild an artificial catalyst with costly dopants.</li>
+            <li><span style="color:#f43f5e;">✕</span> Loses natural synergistic interactions between minerals.</li>
+          </ul>
+        </div>
 
-    <div class="grid md:grid-cols-3 gap-8 items-center">
-      <!-- Interactive Bars -->
-      <div class="md:col-span-2 glass-card p-6 rounded-2xl space-y-4" id="oxide-list">
-        <!-- Populated by JS -->
-      </div>
-
-      <!-- Dynamic Info Box -->
-      <div class="glass-card p-8 rounded-2xl border-sky-500/30 h-full flex flex-col justify-center" id="oxide-detail">
-        <div class="text-xs uppercase tracking-wider text-sky-400 font-bold mb-2">Component Role</div>
-        <h3 class="text-2xl font-bold text-white mb-2" id="detail-title">Iron Oxide (Fe₂O₃) — 10.61%</h3>
-        <p class="text-slate-300 text-sm leading-relaxed" id="detail-desc">
-          Provides abundant surface redox sites (Fe³⁺/Fe²⁺) and enhances structural moisture resistance when interacting with manganese phases.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04. Interactive Prototype Explode View -->
-  <section id="prototype" class="py-16 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">05 — Engineering Prototype</span>
-      <h2 class="text-3xl font-bold mt-2">Interactive Vertical Airflow Reactor</h2>
-      <p class="text-slate-400 text-sm mt-1">Click on any reactor stage to inspect its engineering function.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <!-- Interactive Stack -->
+        <div class="card card-highlight">
+          <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">VEXO HYPOTHESIS • CIRCULAR & LOW-BURDEN</span>
+          <h3 style="margin-top:0.4rem;">Whole-Matrix Valorization</h3>
+          <ul class="clean-list">
+            <li><span style="color:var(--primary);">✓</span> Retain native matrix: Use whole sludge directly.</li>
+            <li><span style="color:var(--primary);">✓</span> Evidence-led engineering: Wash & granulate only as needed.</li>
