@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VEXO — Engineered groundwater-treatment sludge for gas-phase ozone removal</title>
+<meta name="description" content="VEXO investigates whether whole groundwater-treatment sludge can be engineered into a multifunctional material for gas-phase ozone removal.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 6L76.7 46.4A32 32 0 1 1 23.3 46.4Z' fill='%234CC3E6'/%3E%3Ccircle cx='40' cy='72' r='9.5' fill='%23fff'/%3E%3Ccircle cx='60' cy='72' r='9.5' fill='%23fff'/%3E%3Ccircle cx='78' cy='44' r='9' fill='%232DD4BF' stroke='%23fff' stroke-width='4.5'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#071A33;--ocean:#0E3A66;--cy:#19C3E6;--tq:#2DD4BF;--bg:#fff;--alt:#F2F7FA;--fg:#071A33;--mut:#46586E;--line:#DCE7EE;--card:#fff;--hl:#0B7F96;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#061528;--alt:#0A2038;--fg:#EAF3FA;--mut:#A9BDD0;--line:#17314F;--card:#0C2744;--hl:#5CD8EE}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.65 Sora,system-ui,sans-serif}
+h1,h2,h3{line-height:1.1;margin:0}a{color:inherit}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}.alt{background:var(--alt)}
+.dk{background:var(--navy);color:#fff;--mut:#B9C9DA;--hl:#5CD8EE;--card:#0E2A4A;--line:#1B3D66}
+.k{font:600 12px/1 Sora;letter-spacing:.16em;text-transform:uppercase;color:var(--hl);margin-bottom:18px}
+h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;max-width:860px;margin-bottom:22px}
+.lead{color:var(--mut);max-width:700px;margin:0 0 40px}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.1em;text-decoration:none}
+nav{display:flex;gap:22px;font-size:13px}nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--hl)}
+@media(max-width:860px){nav{display:none}}
+.hero{padding:130px 0 80px;min-height:100svh;display:flex;align-items:center}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(40px,6.4vw,78px);font-weight:800;letter-spacing:-.02em}
+.hero h1 span{color:var(--cy)}
+.btn{display:inline-block;padding:14px 26px;border-radius:99px;font:600 14px Sora;text-decoration:none;margin:0 12px 12px 0;transition:.25s}
+.p{background:var(--navy);color:#fff}.p:hover{background:var(--ocean);transform:translateY(-2px)}
+.s{border:1.5px solid var(--hl);color:var(--hl)}.s:hover{background:var(--hl);color:var(--bg)}
+.g{display:grid;gap:20px}.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.c{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;transition:.3s}
+.c:hover{transform:translateY(-4px);border-color:var(--cy)}.c h3{font-size:20px;margin-bottom:10px}.c p{margin:0;color:var(--mut);font-size:15px}
+.tag{display:inline-block;font:600 11px Sora;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:var(--alt);color:var(--hl);border:1px solid var(--line);margin-bottom:14px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rv.on{opacity:1;transform:none}
+#ld{position:fixed;inset:0;background:#fff;z-index:99;display:flex;align-items:center;justify-content:center;transition:opacity .7s .2s}
+#ld.off{opacity:0;pointer-events:none}#ld svg{animation:pu 1.2s ease-in-out infinite}
+@keyframes pu{50%{transform:scale(1.12)}}
+.fl{stroke-dasharray:6 12;animation:fw 3s linear infinite}@keyframes fw{to{stroke-dashoffset:-72}}
+.pt{animation:fy 6s ease-in-out infinite}@keyframes fy{50%{transform:translateY(-14px)}}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.cmp .c p,.cmp .c li{color:#B9C9DA;font-size:15px}.cmp ul{padding-left:18px;margin:12px 0 0}
+.steps{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.steps button{font:600 13px Sora;border:1.5px solid var(--line);background:var(--card);color:var(--fg);padding:12px 16px;border-radius:14px;cursor:pointer;transition:.2s}
+.steps button[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.steps button:hover{border-color:var(--cy)}
+#sd{min-height:150px}#sd h3{font-size:28px;margin-bottom:10px}#sd p{color:var(--mut);max-width:680px}
+.pb{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}@media(max-width:860px){.pb{grid-template-columns:1fr}}
+.ly{transition:transform .8s cubic-bezier(.2,.7,.2,1)}.ex .ly{transform:translateY(calc(var(--d)*1px))}
+.eq{font:600 clamp(16px,2.4vw,24px)/1.4 Sora;background:var(--navy);color:#fff;border-radius:20px;padding:28px;text-align:center;margin:24px 0}
+.eq b{color:var(--cy)}
+.note{border-left:4px solid var(--tq);padding:14px 18px;background:var(--alt);border-radius:0 14px 14px 0;color:var(--mut);font-size:15px;margin:22px 0}
+ol.ref{padding-left:20px;color:var(--mut);font-size:15px}
+footer{background:var(--navy);color:#B9C9DA;padding:60px 0;font-size:14px}footer .w{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+footer nav{flex-wrap:wrap}footer nav a{color:#B9C9DA}
+:focus-visible{outline:3px solid var(--cy);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vx" viewBox="0 0 100 100"><path d="M50 6L76.7 46.4A32 32 0 1 1 23.3 46.4Z" fill="#4CC3E6"/><circle cx="40" cy="72" r="9.5" fill="#fff"/><circle cx="60" cy="72" r="9.5" fill="#fff"/><path d="M60 72L78 44" stroke="#fff" stroke-width="4"/><circle cx="78" cy="44" r="9" fill="#2DD4BF" stroke="#fff" stroke-width="4.5"/></symbol></svg>
+<div id="ld" aria-hidden="true"><svg width="72" height="72" viewBox="0 0 100 100"><use href="#vx" width="100" height="100"/></svg></div>
+<header><div class="w"><a class="brand" href="#top"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><use href="#vx" width="100" height="100"/></svg>VEXO</a>
+<nav aria-label="Main"><a href="#about">About</a><a href="#problem">Problem</a><a href="#innovation">Innovation</a><a href="#how">How it works</a><a href="#science">Science</a><a href="#methods">Methods</a><a href="#prototype">Prototype</a><a href="#validation">Validation</a><a href="#impact">Impact</a><a href="#references">References</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="w"><div>
+<div class="k">Environmental materials research</div>
+<h1>Engineering Waste.<br><span>Rethinking Clean Air.</span></h1>
+<p class="lead" style="margin-top:26px">Transforming groundwater-treatment residuals into a potential multifunctional material for gas-phase ozone removal.</p>
+<a class="btn p" href="#about">Explore the Research</a><a class="btn s" href="#how">Discover the Technology</a></div>
+<svg viewBox="0 0 400 440" role="img" aria-label="Abstract visual: airflow paths rising around the VEXO droplet symbol with suspended mineral particles" style="width:100%;max-width:480px;justify-self:center">
+<g fill="none" stroke="#19C3E6" stroke-width="2" stroke-linecap="round" opacity=".55"><path class="fl" d="M70 440C110 340 30 270 80 180S60 40 70 0"/><path class="fl" d="M330 440C290 340 370 270 320 180S340 40 330 0" style="animation-delay:-1s"/><path class="fl" d="M130 440C150 360 100 300 140 220S120 60 130 0" style="animation-delay:-2s"/><path class="fl" d="M270 440C250 360 300 300 260 220S280 60 270 0" style="animation-delay:-.5s"/></g>
+<use href="#vx" x="70" y="80" width="260" height="260"/>
+<g fill="#2DD4BF" opacity=".7"><circle class="pt" cx="60" cy="300" r="5"/><circle class="pt" cx="345" cy="120" r="4" style="animation-delay:-2s"/><circle class="pt" cx="320" cy="360" r="6" style="animation-delay:-4s"/></g>
+<g fill="#4CC3E6" opacity=".6"><circle class="pt" cx="90" cy="90" r="4" style="animation-delay:-1s"/><circle class="pt" cx="210" cy="400" r="3" style="animation-delay:-3s"/></g></svg>
+</div></section>
+
+<section id="about" class="alt"><div class="w rv"><div class="k">01 — About VEXO</div><h2>A material question hiding in a waste stream.</h2>
+<p class="lead">VEXO investigates whether whole groundwater-treatment sludge can be engineered into a multifunctional material for gas-phase ozone removal. Instead of extracting one component and rebuilding a separate catalyst, it explores keeping the native multicomponent sludge matrix and asks how its composition, surface properties, humidity response and reuse behavior relate to ozone-removal performance.</p>
+<div class="g g4"><div class="c"><span class="tag">Background</span><h3>Waste or resource?</h3><p>Treatment residuals are usually managed as waste. VEXO examines whether their mineral and carbon-containing makeup could carry functional value.</p></div><div class="c"><span class="tag">Hypothesis</span><h3>Whole matrix</h3><p>The combined constituents may act together in ways an isolated component would not. This is a hypothesis to test, not a finding.</p></div><div class="c"><span class="tag">Scope</span><h3>Six disciplines</h3><p>Environmental engineering, material science, air purification, water treatment, waste valorization, sustainable innovation.</p></div></div></div></section>
+
+<section id="problem"><div class="w rv"><div class="k">02 — The problem</div><h2>Two environmental challenges, one possible link.</h2>
+<div class="g g2"><div class="c"><span class="tag">Established background</span><h3>Ground-level ozone</h3><p>Ozone near the surface is a recognized air pollutant that harms respiratory health and vegetation. Reducing exposure, including indoors and in ventilation streams, is an active area of air-quality work.</p></div>
+<div class="c"><span class="tag">Established background</span><h3>Conventional materials</h3><p>Many ozone-removal materials depend on purpose-made catalysts or sorbents whose production, cost and end-of-life add their own burden.</p></div>
+<div class="c"><span class="tag">Established background</span><h3>Sludge management</h3><p>Water-treatment plants generate sludge continuously. Handling, transport and disposal are ongoing operational and environmental challenges.</p></div></div></div></section>
+
+<section id="innovation" class="dk"><div class="w rv"><div class="k">03 — Our innovation</div><h2>Keep the matrix. Don’t isolate one component.</h2>
+<p class="lead">VEXO’s central idea is to retain the whole multicomponent sludge matrix by default, and to engineer it only when evidence justifies it.</p>
+<div class="cmp"><div class="c"><span class="tag" style="background:transparent">Conventional approach</span><h3>Component extraction</h3><ul><li>Select one target component</li><li>Separate and purify it</li><li>Rebuild a separate catalyst</li><li>Additional processing steps</li></ul></div>
+<div class="c" style="border-color:var(--cy)"><span class="tag" style="background:transparent;color:#5CD8EE">VEXO approach</span><h3>Whole-matrix evaluation</h3><ul><li>Retain the native sludge matrix</li><li>Characterize what it actually contains</li><li>Engineer only when justified</li><li>Test ozone removal, humidity response and reuse</li></ul></div></div></div></section>
+
+<section id="how"><div class="w rv"><div class="k">04 — How it works</div><h2>From residual to evaluated material.</h2>
+<p class="lead">Select a stage. This is the proposed research pathway, not a record of completed work.</p>
+<div class="steps" role="tablist" aria-label="Research stages" id="st"></div>
+<div id="sd" class="c" role="tabpanel" aria-live="polite"></div></div></section>
+
+<section id="science" class="alt"><div class="w rv"><div class="k">05 — The science behind VEXO</div><h2>What each constituent might contribute.</h2>
+<div class="note">The roles below come from the general literature. VEXO does not claim any of them are confirmed in our samples; that requires characterization and testing.</div>
+<div class="g g4"><div class="c"><span class="tag">Potential</span><h3>Manganese-containing phases</h3><p>Manganese oxides are widely reported in the literature as ozone-decomposition catalysts. Whether such phases exist in this sludge, and in what form, is to be determined.</p></div>
+<div class="c"><span class="tag">Potential</span><h3>Carbon-containing fractions</h3><p>Carbonaceous material may influence surface area, porosity and adsorption behavior. It might also change under ozone exposure, which needs to be assessed.</p></div>
+<div class="c"><span class="tag">Potential</span><h3>Iron-containing phases</h3><p>Iron (oxy)hydroxides and oxides can offer reactive surface sites and may interact with moisture. Their actual role here is unverified.</p></div>
+<div class="c"><span class="tag">Potential</span><h3>Other mineral phases</h3><p>Calcium-, silicon- and aluminium-bearing minerals may shape structure, porosity and water uptake, and might influence the others.</p></div></div></div></section>
+
+<section id="methods"><div class="w rv"><div class="k">06 — Research methodology</div><h2>Seven ways of asking the material questions.</h2>
+<div class="g g4">
+<div class="c"><h3>XRD</h3><p>Identifies crystalline phases present in the material.</p></div>
+<div class="c"><h3>SEM-EDS</h3><p>Reveals morphology and the distribution of elements across particles.</p></div>
+<div class="c"><h3>BET / porosity</h3><p>Measures specific surface area and pore structure.</p></div>
+<div class="c"><h3>XPS (if available)</h3><p>Probes surface elemental composition and oxidation states.</p></div>
+<div class="c"><h3>Ozone-removal evaluation</h3><p>Compares ozone concentration entering and leaving a material bed.</p></div>
+<div class="c"><h3>Humidity response</h3><p>Examines how moisture changes ozone-removal behavior.</p></div>
+<div class="c"><h3>Reuse &amp; regeneration</h3><p>Tests whether performance holds over repeated cycles.</p></div></div></div></section>
+
+<section id="prototype" class="alt"><div class="w rv"><div class="pb"><div><div class="k">07 — The prototype</div><h2>A transparent vertical airflow chamber.</h2>
+<p class="lead">Air enters at the base, passes a fan stage and a mesh-supported bed of whole engineered sludge, and exits at the top.</p>
+<div class="note"><b>Visual engineering model.</b> This is a design concept. It is not an operating ozone-testing apparatus, it does not generate ozone, and it makes no claim of verified clean air.</div>
+<button class="btn p" id="xb" aria-pressed="false" style="border:0;cursor:pointer">Explode view</button></div>
+<svg id="pv" viewBox="0 0 380 500" role="img" aria-label="Layered diagram of the chamber from air inlet through fan, bottom mesh, sludge bed, top mesh to outlet" style="width:100%;max-width:420px;justify-self:center">
+<rect x="110" y="60" width="130" height="380" rx="26" fill="none" stroke="#19C3E6" stroke-width="2" stroke-dasharray="4 6" opacity=".6"/>
+<g class="ly" style="--d:-30"><path d="M175 30V80M160 46l15-16 15 16" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="56" font-size="13" fill="currentColor">Air outlet</text></g>
+<g class="ly" style="--d:-16"><rect x="115" y="110" width="120" height="8" rx="3" fill="#0E3A66"/><text x="262" y="120" font-size="13" fill="currentColor">Top mesh</text></g>
+<g class="ly" style="--d:0"><rect x="115" y="130" width="120" height="100" rx="6" fill="#4CC3E6"/><g fill="#fff" opacity=".9"><circle cx="140" cy="160" r="6"/><circle cx="175" cy="150" r="5"/><circle cx="205" cy="172" r="7"/><circle cx="150" cy="200" r="7"/><circle cx="190" cy="212" r="5"/></g><text x="262" y="184" font-size="13" fill="currentColor">Whole engineered</text><text x="262" y="201" font-size="13" fill="currentColor">sludge bed</text></g>
+<g class="ly" style="--d:16"><rect x="115" y="242" width="120" height="8" rx="3" fill="#0E3A66"/><text x="262" y="252" font-size="13" fill="currentColor">Bottom mesh</text></g>
+<g class="ly" style="--d:34"><circle cx="175" cy="318" r="30" fill="none" stroke="#0E3A66" stroke-width="3"/><path d="M175 318l0-26M175 318l22 13M175 318l-22 13" stroke="#19C3E6" stroke-width="5" stroke-linecap="round"/><text x="262" y="323" font-size="13" fill="currentColor">Fan / airflow</text></g>
+<g class="ly" style="--d:52"><path d="M175 470V410M160 454l15 16 15-16" stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="440" font-size="13" fill="currentColor">Air inlet</text></g></svg></div></div></section>
+
+<section id="validation"><div class="w rv"><div class="k">08 — Research &amp; validation</div><h2>A proposed framework. No results yet.</h2>
+<div class="note"><b>Status:</b> every experiment below is proposed. No experimental results, removal efficiencies or measurements are reported on this site. They will be added only when data exists.</div>
+<div class="g g2"><div class="c"><h3>Research question</h3><p>Can whole groundwater-treatment sludge be engineered into a multifunctional material for gas-phase ozone removal, and how do its composition, surface properties, humidity response and reuse behavior relate to performance?</p></div>
+<div class="c"><h3>Central hypothesis</h3><p>Retaining the native multicomponent matrix may support ozone removal through the combined effects of its constituents. This is a hypothesis to be experimentally assessed.</p></div>
+<div class="c"><h3>Independent variables</h3><p>Material condition (as-received vs engineered, when justified) and relative humidity.</p></div>
+<div class="c"><h3>Dependent variables</h3><p>Ozone-removal efficiency and change in performance across repeated cycles.</p></div>
+<div class="c"><h3>Controlled variables</h3><p>Airflow rate, inlet ozone concentration, temperature, bed mass and bed geometry.</p></div>
+<div class="c"><h3>Data analysis</h3><p>Replicate runs per group, with removal efficiency calculated from inlet and outlet concentrations and compared between groups.</p></div></div>
+<div class="eq">Removal Efficiency (%) = [(<b>C<sub>in</sub></b> − <b>C<sub>out</sub></b>) / <b>C<sub>in</sub></b>] × 100</div></div></section>
+
+<section id="impact" class="alt"><div class="w rv"><div class="k">09 — Sustainability &amp; impact</div><h2>Potential value, if the evidence supports it.</h2>
+<div class="g g4"><div class="c"><h3>Waste valorization</h3><p>Giving a treatment residual a possible second use.</p></div><div class="c"><h3>Air quality</h3><p>A route toward lowering ozone in treated air streams, subject to validation.</p></div><div class="c"><h3>Circular economy</h3><p>Water treatment and air treatment linked in one material loop.</p></div><div class="c"><h3>Sustainable engineering</h3><p>Less processing by retaining the native matrix where it works.</p></div></div></div></section>
+
+<section id="future" class="dk"><div class="w rv"><div class="k">10 — Future vision</div><h2>Possible directions, not promises.</h2>
+<p class="lead">These are potential future developments that depend on the outcome of the research.</p>
+<div class="g g4"><div class="c"><h3>Modular systems</h3><p>Scalable air-treatment units.</p></div><div class="c"><h3>Cartridge materials</h3><p>Replaceable material cartridges.</p></div><div class="c"><h3>Humidity management</h3><p>Controlling moisture effects on performance.</p></div><div class="c"><h3>Regeneration</h3><p>Restoring material activity, if repeated-cycle testing supports it.</p></div><div class="c"><h3>Sensor monitoring</h3><p>Tracking ozone in and out of a bed.</p></div></div></div></section>
+
+<section id="references"><div class="w rv"><div class="k">11 — References</div><h2>Background sources.</h2>
+<ol class="ref"><li>Brunauer, S., Emmett, P. H., &amp; Teller, E. (1938). Adsorption of gases in multimolecular layers. <i>Journal of the American Chemical Society</i>, 60(2), 309–319.</li>
+<li>U.S. Environmental Protection Agency (2020). <i>Integrated Science Assessment (ISA) for Ozone and Related Photochemical Oxidants</i> (EPA/600/R-20/012).</li>
+<li>World Health Organization (2021). <i>WHO global air quality guidelines: particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide.</i> Geneva: WHO.</li></ol></div></section>
+</main>
+<footer><div class="w"><div><a class="brand" href="#top" style="color:#fff"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><use href="#vx" width="100" height="100"/></svg>VEXO</a><p style="max-width:380px">Engineered whole groundwater-treatment sludge as a multifunctional material for gas-phase ozone removal. A research project, open to scientific discussion and collaboration.</p></div>
+<nav aria-label="Footer"><a href="#about">About</a><a href="#innovation">Innovation</a><a href="#how">How it works</a><a href="#methods">Methods</a><a href="#validation">Validation</a><a href="#references">References</a></nav></div></footer>
+<script>
+const S=[["Groundwater-treatment sludge","The starting point: the residual from groundwater treatment, kept as a whole multicomponent matrix."],["Material characterization","Basic physical and chemical properties are documented before any claim is made."],["Composition and phase analysis","Techniques such as XRD and SEM-EDS investigate which phases and elements are actually present."],["Engineering and optimization","Processing is considered only when characterization justifies it."],["Gas-solid interaction","The study of how ozone-containing air interacts with the material surface, including the influence of humidity."],["Ozone-removal evaluation","Inlet and outlet ozone concentrations are compared to calculate removal efficiency. This is a proposed experiment."],["Reuse and regeneration","Repeated cycles will show whether performance is retained. No regeneration is claimed before this is tested."]];
+const st=document.getElementById("st"),sd=document.getElementById("sd");
+function pick(i){[...st.children].forEach((b,j)=>b.setAttribute("aria-selected",j===i));sd.innerHTML="<div class='k'>Stage "+(i+1)+" of 7</div><h3></h3><p></p>";sd.querySelector("h3").textContent=S[i][0];sd.querySelector("p").textContent=S[i][1]}
+S.forEach((s,i)=>{const b=document.createElement("button");b.role="tab";b.textContent=(i+1)+" · "+s[0];b.onclick=()=>pick(i);st.appendChild(b)});pick(0);
+const xb=document.getElementById("xb");xb.onclick=()=>{const e=document.getElementById("pv").classList.toggle("ex");xb.setAttribute("aria-pressed",e);xb.textContent=e?"Assemble view":"Explode view"};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(n=>io.observe(n));
+addEventListener("load",()=>setTimeout(()=>document.getElementById("ld").classList.add("off"),500));
+setTimeout(()=>document.getElementById("ld").classList.add("off"),2500);
+</script></body></html>
