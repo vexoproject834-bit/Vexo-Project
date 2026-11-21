@@ -161,6 +161,112 @@
       <div class="grid-2">
         <div class="card">
           <span style="font-size:0.75rem; color:#f43f5e; font-weight:700;">CONVENTIONAL PATHWAY • HIGH COST</span>
+          
           <h3 style="margin-top:0.4rem;">Single-Component Extraction</h3>
+            <section id="matrix">
+    <span class="tag">02 — Lab Characterization Results</span>
+    <h2>Qena Sludge Oxide Composition</h2>
+    <p style="color:var(--muted);margin-bottom:2rem">Click any oxide component below to inspect its catalytic or structural role.</p>
+    <div class="grid-2" style="align-items:center">
+      <div class="card" id="ox-bars"></div>
+      <div class="card card-hi">
+        <span class="tag" style="color:var(--sec)">Selected Component Role</span>
+        <h3 id="ox-t" style="font-size:1.4rem">Iron Oxide (Fe₂O₃) — 10.61%</h3>
+        <p id="ox-d" style="color:var(--muted)">Provides abundant surface redox sites (Fe³⁺/Fe²⁺) and enhances structural moisture resistance when interacting with manganese phases.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prototype">
+    <span class="tag">03 — Engineering Prototype</span>
+    <h2>Interactive Vertical Airflow Reactor</h2>
+    <p style="color:var(--muted);margin-bottom:2rem">Click on any stage of the fixed-bed reactor to view its engineering specifications.</p>
+    <div class="grid-2" style="align-items:center">
+      <div>
+        <button class="l-btn act" onclick="setL(0,this)"><span class="l-st">Stage 5 • Top</span><strong>Perforated Air Outlet & C_out Sensor</strong></button>
+        <button class="l-btn" onclick="setL(1,this)"><span class="l-st">Stage 4</span><strong>Upper Retaining Mesh</strong></button>
+        <button class="l-btn" onclick="setL(2,this)"><span class="l-st">Stage 3 • Active Core</span><strong>Whole Engineered Sludge Bed</strong></button>
+        <button class="l-btn" onclick="setL(3,this)"><span class="l-st">Stage 2</span><strong>Bottom Support Mesh</strong></button>
+        <button class="l-btn" onclick="setL(4,this)"><span class="l-st">Stage 1 • Base</span><strong>Air Inlet, Fan & C_in Sensor</strong></button>
+      </div>
+      <div class="card">
+        <span class="pill" id="st-b" style="margin-bottom:.8rem">Stage 5 • Outlet</span>
+        <h3 id="st-t" style="font-size:1.4rem">Perforated Air Outlet & Outlet Sensor</h3>
+        <p id="st-d" style="color:var(--muted);margin-bottom:1.2rem">Releases purified air after catalytic decomposition and houses the outlet ozone sensor (C_out) to measure real-time removal efficiency.</p>
+        <div style="background:#05080f;padding:1rem;border-radius:.75rem;font-size:.85rem;color:var(--muted)"><strong style="color:var(--text)">Design Advantage:</strong> Granulated sludge bed prevents pressure drop while maximizing gas-solid contact time.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulator">
+    <span class="tag">04 — Validation Metric</span>
+    <h2>Ozone Removal Efficiency Simulator</h2>
+    <p style="color:var(--muted);margin-bottom:2rem">Adjust inlet and outlet concentrations: η (%) = [(C_in − C_out) / C_in] × 100</p>
+    <div class="card grid-2" style="align-items:center">
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Inlet Ozone (C_in):</span><strong style="color:var(--sec)"><span id="cin-t">100</span> ppm</strong></div>
+        <input type="range" id="cin" min="20" max="200" value="100" oninput="sim()">
+        <div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Outlet Ozone (C_out):</span><strong style="color:var(--primary)"><span id="cout-t">12</span> ppm</strong></div>
+        <input type="range" id="cout" min="0" max="100" value="12" oninput="sim()">
+      </div>
+      <div class="sim-box">
+        <div style="font-size:.8rem;color:var(--muted);text-transform:uppercase">Removal Efficiency</div>
+        <div class="big" id="eff-t">88.0%</div>
+        <div id="eff-b" style="color:var(--primary);font-weight:700;font-size:.85rem">✓ Exceeds 85% Engineering Target</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" style="border-bottom:none">
+    <span class="tag">05 — Research Team</span>
+    <h2>Meet the Researchers</h2>
+    <p style="color:var(--muted);margin-bottom:2rem">Student Researchers • Qena Governorate, Egypt</p>
+    <div class="grid-2">
+      <div class="card t-card">
+        <img src="nour.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%2310b981%22/><text x=%2250%%22 y=%2255%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22white%22 font-family=%22sans-serif%22>NS</text></svg>'" alt="Nour Al-Hoda Saad" class="avatar">
+        <div>
+          <h3 style="margin-bottom:.2rem">Nour Al-Hoda Saad</h3>
+          <div style="color:var(--primary);font-size:.8rem;font-weight:700;margin-bottom:.5rem">CO-LEAD RESEARCHER</div>
+          <p style="color:var(--muted);font-size:.85rem">Sludge sampling, chemical characterization (XRD/XRF), and catalytic optimization.</p>
+        </div>
+      </div>
+      <div class="card t-card">
+        <img src="sara.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%2338bdf8%22/><text x=%2250%%22 y=%2255%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22white%22 font-family=%22sans-serif%22>SG</text></svg>'" alt="Sara Gomaa" class="avatar">
+        <div>
+          <h3 style="margin-bottom:.2rem">Sara Gomaa</h3>
+          <div style="color:var(--sec);font-size:.8rem;font-weight:700;margin-bottom:.5rem">CO-LEAD RESEARCHER</div>
+          <p style="color:var(--muted);font-size:.85rem">Fixed-bed reactor design, airflow testing, and humidity resistance analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer><strong>VEXO Research Project</strong> — Engineered Groundwater-Treatment Sludge for Gas-Phase Ozone Removal • Qena, Egypt</footer>
+
+<script>
+const ox=[
+  {n:"Silicon Dioxide (SiO₂)",p:48.14,c:"#94a3b8",d:"Forms the porous structural backbone and high-surface-area support matrix that disperses active metal oxides."},
+  {n:"Aluminum Oxide (Al₂O₃)",p:21.41,c:"#38bdf8",d:"Enhances mechanical strength of sludge granules and provides thermal stability during regeneration."},
+  {n:"Iron Oxide (Fe₂O₃)",p:10.61,c:"#f59e0b",d:"Provides abundant surface redox sites (Fe³⁺/Fe²⁺) and enhances structural moisture resistance when interacting with manganese phases."},
+  {n:"Calcium & Sulfates (CaO/SO₃)",p:11.14,c:"#818cf8",d:"Influences surface alkalinity and pore structure; controlled via pre-washing treatment."},
+  {n:"Manganese Dioxide (MnO₂)",p:1.01,c:"#10b981",d:"Primary catalytic active phase known for rapid electron transfer and decomposition of O₃ into O₂."}
+];
+const bc=document.getElementById('ox-bars');
+ox.forEach((x,i)=>{bc.innerHTML+=`<div class="ox-item ${i===2?'ox-act':''}" onclick="pick(${i},this)"><div class="ox-head"><span>${x.n}</span><span>${x.p}%</span></div><div class="bar-bg"><div class="bar-fill" style="width:${Math.min(x.p*1.9,100)}%;background:${x.c}"></div></div></div>`});
+function pick(i,el){document.querySelectorAll('.ox-item').forEach(b=>b.classList.remove('ox-act'));el.classList.add('ox-act');document.getElementById('ox-t').innerText=ox[i].n+" — "+ox[i].p+"%";document.getElementById('ox-d').innerText=ox[i].d}
+const st=[
+  {b:"Stage 5 • Outlet",t:"Perforated Air Outlet & Outlet Sensor",d:"Releases purified air after catalytic decomposition and houses the outlet ozone sensor (C_out) to measure real-time removal efficiency."},
+  {b:"Stage 4 • Containment",t:"Upper Retaining Mesh",d:"Prevents fine granules from escaping during high airflow rates while maintaining minimal pressure drop."},
+  {b:"Stage 3 • Active Core",t:"Whole Engineered Sludge Bed",d:"Packed bed of washed, granulated Qena groundwater sludge where Fe₂O₃, MnO₂, and SiO₂ synergistically decompose O₃ into O₂."},
+  {b:"Stage 2 • Distribution",t:"Bottom Support Mesh",d:"Supports the catalytic bed weight and ensures uniform airflow distribution across the entire cross-section."},
+  {b:"Stage 1 • Base",t:"Air Inlet, Fan & Inlet Sensor",d:"Draws ozone-laden air into the vertical chamber at a controlled flow rate and measures baseline inlet concentration (C_in)."}
+];
+function setL(i,btn){document.querySelectorAll('.l-btn').forEach(b=>b.classList.remove('act'));btn.classList.add('act');document.getElementById('st-b').innerText=st[i].b;document.getElementById('st-t').innerText=st[i].t;document.getElementById('st-d').innerText=st[i].d}
+function sim(){let ci=+document.getElementById('cin').value,co=+document.getElementById('cout').value;if(co>ci){co=ci;document.getElementById('cout').value=ci}document.getElementById('cin-t').innerText=ci;document.getElementById('cout-t').innerText=co;let e=(((ci-co)/ci)*100).toFixed(1);document.getElementById('eff-t').innerText=e+"%";const b=document.getElementById('eff-b');b.style.color=e>=85?"#10b981":"#f59e0b";b.innerText=e>=85?"✓ Exceeds 85% Engineering Target":"⚠ Below 85% Target Efficiency"}
+</script>
+</body>
+</html>
+
           <ul class="clean-list">
             <li><span style="color:#f43f5e;">✕</span> Chemically separate one target metal or mineral.</li>
